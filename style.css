@@ -1,0 +1,25 @@
+.list{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    margin: 10px;
+    border-style: dashed;
+    border-radius: 15px;
+    border-color: aqua;
+    padding-left: 10px;
+}
+#Título{
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 5px dashed;
+    padding: 1px;
+}
+div{
+    border: 1px dotted;
+    background-color: white ;
+}
+#container{
+    background-color: aqua;
+    padding: 25px 25px;
+    display: flex;
+    justify-content: space-around;
+}
