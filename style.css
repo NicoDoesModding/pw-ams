@@ -1,3 +1,10 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body, html{
+    height:100%;
+}
 .list{
     font-family: Arial, Helvetica, sans-serif;
     text-align: left;
@@ -7,19 +14,22 @@
     border-color: aqua;
     padding-left: 10px;
 }
-#Título{
+.item-menu{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 10px 8px 8px;
     display: flex;
     font-family: Arial, Helvetica, sans-serif;
-    border: 5px dashed;
     padding: 1px;
 }
 div{
-    border: 1px dotted;
+    border: 1px solid;
     background-color: white ;
 }
 #container{
     background-color: aqua;
-    padding: 25px 25px;
     display: flex;
     justify-content: space-around;
+
+    height: 75px;
 }
