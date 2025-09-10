@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>Alfabeto Acessível</title>
+  <link rel="stylesheet" href="styled.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="icon" href="Logo.png" type="image/x-icon">
+
+</head>
+
+
+<body>
+  <div class="container">
+    <div class="menu-box"><a href="start.html">Início</a></div>
+    <div class="menu-box"><a href="index.html">Alfabeto</a></div>
+    <div class="menu-box"><a href="About.html">Sobre nós</a></div>
+    <div class="menu-box" id="image"><img src="Logo.png" alt="Autismo" width="50px" height="50px"></div>
+  </div>
+    <div class="intro">
+        <img src="project.png" alt="Imagem do projeto" class="img-intro">
+        <div class="texto-intro">
+        <h1 class="h">Bem-vindo ao Alfabeto Acessível!</h1>
+        <h2 class="h">É recomendado usar esse site com a ajuda de responsáveis ou amigos</h2>
+        <button onclick ="falarFrase()">FALAR</button>
+        <br>
+        <p id="textoIntro">
+            Nosso objetivo é tornar o aprendizado das letras mais divertido e inclusivo!  
+        Aqui você pode explorar o alfabeto, montar palavras e ouvir como elas são pronunciadas.  
+        Tudo de forma simples, interativa e pensada para todos.
+        </p>
+        </div>
+        <button onclick ="falarIntro()">FALAR</button>
+        <br>
+        <p id="textoMeio" class="">
+        Use o menu acima para navegar: veja o alfabeto, descubra como formar palavras com ele,
+        ou conheça mais sobre o nosso projeto em <strong>“Sobre nós”</strong>.  
+        </p>
+        <button onclick ="falarMeio()">FALAR</button>
+    <br>
+    <p id="textoFinal">
+        Vamos juntos transformar cada letra em uma nova descoberta!
+    </p>
+    <button onclick ="falarFim()">FALAR</button>
+    <button onclick="window.location.href='index.html'">Ir para o Alfabeto</button>
+    </div>
+    <script>
+  function falarFrase() {
+    const titulos = document.getElementsByClassName("h");
+    let texto = "";
+    for (let i = 0; i < titulos.length; i++) {
+      texto += titulos[i].innerText + " ";
+    }
+    if ('speechSynthesis' in window) {
+      const utter = new SpeechSynthesisUtterance(texto);
+      utter.lang = 'pt-BR';
+      speechSynthesis.speak(utter);
+    } else {
+      alert("Seu navegador não suporta leitura de voz.");
+    }
+  }
+
+  function falarIntro() {
+    const textComeco = document.getElementById("textoIntro").innerText;
+    const utter = new SpeechSynthesisUtterance(textComeco);
+    utter.lang = 'pt-BR';
+    speechSynthesis.speak(utter);
+  }
+
+  function falarMeio() {
+    const textMeio = document.getElementById("textoMeio").innerText;
+    const utter = new SpeechSynthesisUtterance(textMeio);
+    utter.lang = 'pt-BR';
+    speechSynthesis.speak(utter);
+  }
+
+  function falarFim() {
+    const textFinal = document.getElementById("textoFinal").innerText;
+    const utter = new SpeechSynthesisUtterance(textFinal);
+    utter.lang = 'pt-BR';
+    speechSynthesis.speak(utter);
+  }
+</script>
+
+</body>

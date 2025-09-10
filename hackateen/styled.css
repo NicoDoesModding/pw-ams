@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   background: linear-gradient(to bottom, #3f8cff, #e6f0ff);
   height: 100%;
   background-repeat: no-repeat;
@@ -10,7 +10,11 @@ body {
 
 h1, p {
   color: #ffffff;
-  text-shadow: 3px 2px rgba(0, 0, 0, 0.596);
+  text-shadow: 2px 1px rgba(0, 0, 0, 0.596);
+}
+p{
+  width: 60%;
+  margin: 10px auto;
 }
 
 #display {
@@ -30,6 +34,7 @@ h1, p {
   gap: 8px;
   max-width: 500px;
   margin: 15px auto;
+  font-family: 'Fredoka', sans-serif;
 }
 p{
   font: 300;
@@ -56,18 +61,21 @@ button:hover {
     padding: 0px;
     display: flex;
     justify-content: flex-start;
-    background-color: #003366;
+    border-radius: calc(20px + 8px)
 }
 .menu-box {
     color: white;
-    padding: 20px;
+    
     box-sizing: border-box;
     display: block;
+    border-radius: 20px;
 }
 a{
   text-decoration: none;
   color: #ffffff;
   font-size: medium;
+  display: block;
+  padding: 20px;
 }
 .menu-box:hover{
   background-color: #0059b3;
@@ -76,4 +84,31 @@ a{
   margin-left: auto;
   padding: 0%;
   padding-top: 5px;
+}
+h2{
+  color: red;
+  text-shadow: 2px 1px rgba(0, 0, 0, 0.596);
+  font-size: medium;
+}
+
+.intro {
+  display: flex;
+  align-items: flex-start; /* Alinha o topo da imagem com o topo do texto */
+  gap: 20px;
+  max-width: 900px;
+  margin: 20px auto;
+  flex-wrap: wrap; /* Para telas pequenas, o texto vai para baixo da imagem */
+}
+
+.img-intro {
+  width: 400px;
+  height: auto;
+  border-radius: 10px;
+  flex-shrink: 0; /* Evita que a imagem encolha */
+}
+
+.texto-intro {
+  flex: 1; /* O texto ocupa o restante do espaço */
+  text-align: justify;
+  font-size: 18px;
 }
