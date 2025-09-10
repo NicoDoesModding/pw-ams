@@ -1,0 +1,32 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(79, 170, 255);
+    padding-top: 20px;
+}
+table{
+    text-align: center;
+    border-radius: 20px;
+    min-height: 90vh;
+    min-width: 75vh;
+    background-color: white;
+}
+td{
+    border-radius: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 35pt;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+#Bingo td{
+    border: 0px;
+}
+.Bingoing{
+    border: 0px;
+}
+td:hover{
+    background-color: aqua;
+}

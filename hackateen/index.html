@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>Alfabeto Acessível</title>
+  <link rel="stylesheet" href="styled.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="icon" href="Design_sem_nome-removebg-preview.png" type="image/x-icon">
+
+</head>
+
+
+<body>
+  <div class="container">
+    <div class="menu-box"><a href="index.html">Início</a></div>
+    <div class="menu-box"><a href="About.html">Sobre nós</a></div>
+    <div class="menu-box" id="image"><img src="Design_sem_nome-removebg-preview.png" alt="Autismo" width="50px" height="50px"></div>
+  </div>
+  <h1>Alfabeto Acessível</h1>
+  <p>Monte palavras clicando nas letras.</p>
+  <div id="display"></div>
+  
+  <div class="keyboard" id="keyboard"></div>
+  <button onclick="falarPalavra()">Falar Palavra</button>
+  <button onclick="limpar()">Limpar</button>
+  <button onclick="removerLetra()">Voltar</button>
+  <script>
+    const letras = 'ABCÇDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+    const teclado = document.getElementById('keyboard');
+    const display = document.getElementById('display');
+    let palavra = '';
+    
+    letras.forEach(l => {
+      const btn = document.createElement('button');
+      btn.textContent = l;
+      btn.onclick = () => adicionarLetra(l);
+      teclado.appendChild(btn);
+    });
+
+    function adicionarLetra(l) {
+      palavra += l;
+      display.textContent = palavra;
+      falar(l);
+    }
+
+    function falarPalavra() {
+      if (palavra.trim() !== '') {
+        let palavraNormalizada = substituirAcentos(palavra.toLowerCase());
+        falar(palavraNormalizada);
+      }
+    }
+
+    function limpar() {
+      palavra = '';
+      display.textContent = '';
+    }
+
+    function removerLetra() {
+      palavra = palavra.slice(0, -1);
+      display.textContent = palavra;
+    }
+
+    function falar(texto) {
+      if ('speechSynthesis' in window) {
+        const utter = new SpeechSynthesisUtterance(texto);
+        utter.lang = 'pt-BR';
+        speechSynthesis.speak(utter);
+      }
+    }
+
+    function substituirAcentos(txt) {
+      return txt
+        .replace(/nao/g, 'não')
+        .replace(/cao/g, 'cão')
+        .replace(/mao/g, 'mão')
+        .replace(/coraçao/g, 'coração')
+        .replace(/aviao/g, 'avião')
+        .replace(/funçao/g, 'função')
+        .replace(/maça/g, 'maçã')
+
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #3f8cff, #e6f0ff);
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  text-align: center;
+  padding: 0px;
+}
+
+h1, p {
+  color: #ffffff;
+  text-shadow: 3px 2px rgba(0, 0, 0, 0.596);
+}
+
+#display {
+  margin: 15px auto;
+  padding: 10px;
+  border: 2px solid #003366;
+  border-radius: 5px;
+  width: 80%;
+  font-size: 22px;
+  min-height: 30px;
+  background: #fff;
+}
+
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  max-width: 500px;
+  margin: 15px auto;
+}
+p{
+  font: 300;
+  font-size: large;
+}
+
+button {
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+  background: #0059b3;
+  color: white;
+  cursor: pointer;
+  text-shadow: 2px 2px rgb(82, 82, 82);
+}
+
+button:hover {
+  background: #003366;
+}
+.container {
+    width: 100%;
+    margin: auto;
+    padding: 0px;
+    display: flex;
+    justify-content: flex-start;
+    background-color: #003366;
+}
+.menu-box {
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    display: block;
+}
+a{
+  text-decoration: none;
+  color: #ffffff;
+  font-size: medium;
+}
+.menu-box:hover{
+  background-color: #0059b3;
+}
+#image{
+  margin-left: auto;
+  padding: 0%;
+  padding-top: 5px;
+}

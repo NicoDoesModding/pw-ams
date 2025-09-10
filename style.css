@@ -37,7 +37,6 @@ div{
     color: aliceblue;
 }
 table{
-    border: 1;
     display: flex;
     justify-content: space-around;
     align-items: center;
