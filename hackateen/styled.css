@@ -10,7 +10,7 @@ body {
 
 h1, p {
   color: #ffffff;
-  text-shadow: 2px 1px rgba(0, 0, 0, 0.596);
+
 }
 p{
   width: 60%;
@@ -39,10 +39,16 @@ p{
   font-family: 'Fredoka', sans-serif;
   font-size: 20px;   /* aumenta o tamanho */
   font-weight: 600;  /* deixa mais grossa */
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.678);
+  transition: 0.2s;
+
 }
 p{
   font: 300;
   font-size: large;
+}
+h3{
+  color: white;
 }
 
 button {
