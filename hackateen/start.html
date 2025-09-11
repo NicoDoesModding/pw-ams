@@ -20,32 +20,33 @@
     <div class="menu-box" id="image"><img src="Logo.png" alt="Autismo" width="50px" height="50px"></div>
   </div>
     <div class="intro">
-        <img src="project.png" alt="Imagem do projeto" class="img-intro">
-        <div class="texto-intro">
         <h1 class="h">Bem-vindo ao Alfabeto Acessível!</h1>
-        <h2 class="h">É recomendado usar esse site com a ajuda de responsáveis ou amigos</h2>
-        <button onclick ="falarFrase()">FALAR</button>
-        <br>
-        <p id="textoIntro">
-            Nosso objetivo é tornar o aprendizado das letras mais divertido e inclusivo!  
-        Aqui você pode explorar o alfabeto, montar palavras e ouvir como elas são pronunciadas.  
-        Tudo de forma simples, interativa e pensada para todos.
-        </p>
+        <div class="h2-container">
+         <h2 class="h">É recomendado usar esse site com a ajuda de responsáveis ou amigos</h2>
+         <button onclick="falarFrase()">FALAR</button>
         </div>
-        <button onclick ="falarIntro()">FALAR</button>
+        <img src="project.png" alt="Imagem do projeto" class="img-intro">
         <br>
-        <p id="textoMeio" class="">
+        <div class="texto-intro">
+        
+        <div id="texto-ducao"> <p id="textoIntro" class="start-p">
+        Nosso objetivo é tornar o aprendizado das letras mais divertido e inclusivo!  
+        Aqui você pode explorar o alfabeto, montar palavras e ouvir como elas são pronunciadas.  
+        Tudo de forma simples, interativa e pensada para beneficiar todos.
+        <span class="espaco"></span>
         Use o menu acima para navegar: veja o alfabeto, descubra como formar palavras com ele,
         ou conheça mais sobre o nosso projeto em <strong>“Sobre nós”</strong>.  
-        </p>
-        <button onclick ="falarMeio()">FALAR</button>
+        </p></div> 
+        <button onclick ="falarIntro()">FALAR</button>
     <br>
-    <p id="textoFinal">
-        Vamos juntos transformar cada letra em uma nova descoberta!
-    </p>
+    </div>
+    <div id="end-of-page">
+    <p id="textoFinal" class="start-p">
+        <strong>Vamos juntos transformar cada letra em uma nova descoberta!</strong></p>
     <button onclick ="falarFim()">FALAR</button>
     <button onclick="window.location.href='index.html'">Ir para o Alfabeto</button>
     </div>
+  </div>
     <script>
   function falarFrase() {
     const titulos = document.getElementsByClassName("h");
@@ -68,14 +69,6 @@
     utter.lang = 'pt-BR';
     speechSynthesis.speak(utter);
   }
-
-  function falarMeio() {
-    const textMeio = document.getElementById("textoMeio").innerText;
-    const utter = new SpeechSynthesisUtterance(textMeio);
-    utter.lang = 'pt-BR';
-    speechSynthesis.speak(utter);
-  }
-
   function falarFim() {
     const textFinal = document.getElementById("textoFinal").innerText;
     const utter = new SpeechSynthesisUtterance(textFinal);

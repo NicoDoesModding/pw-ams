@@ -34,7 +34,11 @@ p{
   gap: 8px;
   max-width: 500px;
   margin: 15px auto;
+}
+#keyboard button{
   font-family: 'Fredoka', sans-serif;
+  font-size: 20px;   /* aumenta o tamanho */
+  font-weight: 600;  /* deixa mais grossa */
 }
 p{
   font: 300;
@@ -90,18 +94,30 @@ h2{
   text-shadow: 2px 1px rgba(0, 0, 0, 0.596);
   font-size: medium;
 }
-
-.intro {
-  display: flex;
-  align-items: flex-start; /* Alinha o topo da imagem com o topo do texto */
-  gap: 20px;
-  max-width: 900px;
-  margin: 20px auto;
-  flex-wrap: wrap; /* Para telas pequenas, o texto vai para baixo da imagem */
+#end-of-page {
+  display: flex;           /* ativa flexbox */
+  justify-content: center; /* centraliza horizontalmente */
+  align-items: center;     /* centraliza verticalmente (opcional) */
+  gap: 10px;               /* espaço entre os botões */
+  margin: auto;      /* separação do conteúdo acima */
+  flex-wrap: wrap;         /* caso a tela seja pequena, os botões vão quebrar linha */
 }
-
+.intro {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px 30px; /* 20px vertical, 30px horizontal */
+    max-width: 900px;
+    margin: 20px auto;
+    flex-wrap: wrap;
+    flex-direction: row; /* mantém imagem e texto lado a lado */
+}
+.espaco {
+  display: inline-block;
+  height: 20px; /* altura do espaço que você quer */
+  width: 100%;  /* força a "linha" a quebrar visualmente */
+}
 .img-intro {
-  width: 400px;
+  width: 425px;
   height: auto;
   border-radius: 10px;
   flex-shrink: 0; /* Evita que a imagem encolha */
@@ -111,4 +127,51 @@ h2{
   flex: 1; /* O texto ocupa o restante do espaço */
   text-align: justify;
   font-size: 18px;
+}
+.start-p{
+  width: 100%;
+}
+.h {
+  margin: auto;
+  padding: 0%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.intro > button:first-of-type {
+  position: absolute;
+  margin-right: auto; /* deixa pertinho do h2 */
+  align-self: flex-start;
+}
+.h2-container {
+  margin: auto;
+  display: flex;               /* coloca h2 e botão na mesma linha */
+  align-items: center;         /* alinha verticalmente */
+  justify-content: center; /* mantém tudo à esquerda; ou center para centralizar */
+  gap: 15px;                   /* distância entre o h2 e o botão */
+  margin-bottom: 20px;         /* dá um espaçamento em relação ao conteúdo abaixo */
+}
+
+.h2-container h2 {
+    margin: 0;                   /* remove margens padrão do h2 para o flex funcionar melhor */
+}
+
+.h2-container button {
+    flex-shrink: 0;               /* evita que o botão encolha se o texto for grande */
+}
+#textoIntro{
+  color: black;
+  text-shadow: none;
+  font-family: 'Fredoka', sans-serif;
+  border-radius: 30px;
+  background-color: white;
+  border: black solid;
+  padding: 10px;
+}
+#textoFinal{
+  color: black;
+  text-shadow: none;
+  font: 500;
+  font-family: 'Fredoka', sans-serif;
+  font-size: larger;
 }
