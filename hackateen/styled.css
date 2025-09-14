@@ -13,6 +13,7 @@ body {
 
 h1, p {
   color: #ffffff;
+  font-family: 'Fredoka', sans-serif;
 
 }
 p{
@@ -261,10 +262,9 @@ h2{
   cursor: pointer;
 }
 #bottom-button{
-  position: fixed;       /* sticks it relative to the viewport */
-  bottom: 20px;          /* distance from bottom of screen */
-  right: 20px;           /* distance from right edge */
-  /* optional styling */
+  position: fixed;      
+  bottom: 20px;          /* distancia do canto inferior */
+  right: 20px;           /* distancia do canto direito */
   padding: 10px 15px;
   border-radius: 8px;
   font-size: 1.2rem;
@@ -273,11 +273,7 @@ h2{
   cursor: pointer;
   z-index: 1000;
 }
-/* Mantém TUDO igual no PC — não mexi nos px originais */
 
-/* ... seu CSS original inteiro aqui ... */
-
-/* Ajustes só para telas menores */
 @media (max-width: 768px) {
   #letterContainer, #letterCanvas, #traceCanvas {
     width: 300px;
