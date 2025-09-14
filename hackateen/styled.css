@@ -1,7 +1,10 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(to bottom, #3f8cff, #e6f0ff);
+  background: linear-gradient(to bottom, #0b6cff, #c9dfff);
   height: 100%;
+  max-width: 100rem;
+  margin: 10 auto;
+  padding: 0px 10px; 
   background-repeat: no-repeat;
   background-attachment: fixed;
   text-align: center;
@@ -13,6 +16,7 @@ h1, p {
 
 }
 p{
+  font-size: 1rem; 
   width: 60%;
   margin: 10px auto;
 }
@@ -72,10 +76,11 @@ button:hover {
     display: flex;
     justify-content: flex-start;
     border-radius: calc(20px + 8px)
+
 }
 .menu-box {
     color: white;
-    
+    font-family: 'Fredoka', sans-serif;
     box-sizing: border-box;
     display: block;
     border-radius: 20px;
@@ -88,16 +93,38 @@ a{
   padding: 20px;
 }
 .menu-box:hover{
-  background-color: #0059b3;
+  background-color: #003d79da;
 }
 #image{
   margin-left: auto;
   padding: 0%;
   padding-top: 5px;
 }
+#letterContainer {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin: 20px auto;
+  background-color: white;
+}
+
+#traceCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 2px solid #333;
+}
+
+#letterCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+#traceCanvas { z-index: 2; }
+#letterCanvas { z-index: 1; }
 h2{
   color: red;
-  text-shadow: 2px 1px rgba(0, 0, 0, 0.596);
   font-size: medium;
 }
 #end-of-page {
@@ -124,6 +151,7 @@ h2{
 }
 .img-intro {
   width: 425px;
+  max-width: 100%;
   height: auto;
   border-radius: 10px;
   flex-shrink: 0; /* Evita que a imagem encolha */
@@ -211,4 +239,181 @@ h2{
   width: 600px;
   padding: auto;
   background-color: white;
+}
+#palavra{
+  border: solid black;
+  background-color: white;
+  color: black;
+  width: 500px;
+  margin: auto;
+  border-radius: calc(20px+8px);
+}
+.botao{
+
+  font-size: 18px;
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 1px 2px black;
+  border: none;
+  background: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+#bottom-button{
+  position: fixed;       /* sticks it relative to the viewport */
+  bottom: 20px;          /* distance from bottom of screen */
+  right: 20px;           /* distance from right edge */
+  /* optional styling */
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  cursor: pointer;
+  z-index: 1000;
+}
+/* Mantém TUDO igual no PC — não mexi nos px originais */
+
+/* ... seu CSS original inteiro aqui ... */
+
+/* Ajustes só para telas menores */
+@media (max-width: 768px) {
+  #letterContainer, #letterCanvas, #traceCanvas {
+    width: 300px;
+    height: 300px;
+  }
+
+  #display {
+    font-size: 18px;
+    width: 95%;
+  }
+
+  .keyboard {
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 100%;
+  }
+
+  p {
+    width: 90%;
+    font-size: 0.9rem;
+  }
+
+  .img-intro {
+    width: 100%;
+    height: auto;
+  }
+
+  .team-member {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .team-info p {
+    width: 100%;
+    text-align: center;
+  }
+
+  .all, #palavra {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  #letterContainer, #letterCanvas, #traceCanvas {
+    width: 250px;
+    height: 250px;
+  }
+
+  #display {
+    font-size: 16px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+}
+/* --- SEU CSS ORIGINAL AQUI INTACTO --- */
+
+/* Ajustes para tablets e celulares médios (até 768px) */
+@media (max-width: 768px) {
+  #letterContainer, #letterCanvas, #traceCanvas {
+    width: 300px;
+    height: 300px;
+  }
+
+  #display {
+    font-size: 18px;
+    width: 95%;
+  }
+
+  .keyboard {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 100%;
+  }
+
+  p {
+    width: 90%;
+    font-size: 0.9rem;
+  }
+
+  .img-intro {
+    width: 100%;
+    height: auto;
+  }
+
+  .team-member {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .team-info p {
+    width: 100%;
+    text-align: center;
+  }
+
+  .all, #palavra {
+    width: 95%;
+  }
+}
+
+/* Ajustes específicos para celulares pequenos (até 480px) */
+@media (max-width: 480px) {
+  #letterContainer, #letterCanvas, #traceCanvas {
+    width: 220px;
+    height: 220px;
+  }
+
+  #display {
+    font-size: 16px;
+    width: 100%;
+  }
+
+  button, .botao {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  .keyboard {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  p, h3 {
+    font-size: 0.85rem;
+  }
+
+  .img-intro {
+    width: 100%;
+  }
+
+  .all {
+    width: 100%;
+    margin: 10px auto;
+  }
 }

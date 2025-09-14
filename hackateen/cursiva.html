@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>Alfabeto Acessível</title>
+  <link rel="stylesheet" href="styled.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="icon" href="Logo.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container">
+    <div class="menu-box"><a href="start.html">Início</a></div>
+    <div class="menu-box"><a href="index.html">Alfabeto</a></div>
+    <div class="menu-box"><a href="Fale.html">Soletrar</a></div>
+    <div class="menu-box"><a href="cursiva.html">Cursiva</a></div>
+    <div class="menu-box"><a href="About.html">Sobre nós</a></div>
+    
+
+    <div class="menu-box" id="image"><img src="Logo.png" alt="Autismo" width="50px" height="50px"></div>
+  </div>
+  <h1>Alfabeto Acessível</h1>
+  <p>Aprenda letra cursiva desenhando as letras!</p>
+
+  <div id="letterContainer" style="position: relative; width: 400px; height: 400px;">
+    <canvas id="letterCanvas" width="400" height="400" style="position:absolute; top:0; left:0;"></canvas>     
+    <canvas id="traceCanvas" width="400" height="400" style="position:absolute; top:0; left:0; border:1px solid #333;"></canvas>
+  </div>
+
+  <button onclick="prevLetter()">← Letra anterior</button>
+  <button onclick="nextLetter()">Próxima letra →</button>
+  <button onclick="toggleCase()">Maiúscula/Minúscula</button>
+  <button onclick="clearCanvas()">Limpar</button>
+
+  <script>
+    const traceCanvas = document.getElementById('traceCanvas');
+    const traceCtx = traceCanvas.getContext('2d');
+
+    const letterCanvas = document.getElementById('letterCanvas');
+    const letterCtx = letterCanvas.getContext('2d');
+
+    let desenhando = false;
+    let prevX = 0, prevY = 0;
+
+    const letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let indiceAtual = 0;
+    let modoMaiuscula = true;
+
+    // Desenha a letra (maiúscula ou minúscula, dependendo do modo)
+    async function desenharLetra() {
+      await document.fonts.ready; // espera a fonte carregar
+      letterCtx.clearRect(0, 0, letterCanvas.width, letterCanvas.height);
+
+      const letra = modoMaiuscula 
+        ? letras[indiceAtual].toUpperCase() 
+        : letras[indiceAtual].toLowerCase();
+
+      letterCtx.font = '200px "Cedarville Cursive", cursive';
+      letterCtx.fillStyle = 'rgba(0,0,0,0.2)'; // cinza claro para facilitar o traçado
+      letterCtx.textAlign = 'center';
+      letterCtx.textBaseline = 'middle';
+      letterCtx.fillText(letra, letterCanvas.width / 2, letterCanvas.height / 2);
+    }
+
+    // Avança para a próxima letra
+    function nextLetter() {
+      indiceAtual = (indiceAtual + 1) % letras.length;
+      limparTela();
+      desenharLetra();
+    }
+
+    // Volta para a letra anterior
+    function prevLetter() {
+      indiceAtual = (indiceAtual - 1 + letras.length) % letras.length;
+      limparTela();
+      desenharLetra();
+    }
+
+    // Alterna entre maiúscula e minúscula
+    function toggleCase() {
+      modoMaiuscula = !modoMaiuscula;
+      limparTela();
+      desenharLetra();
+    }
+
+    // Limpa os traços feitos pelo usuário
+    function limparTela() {
+      traceCtx.clearRect(0, 0, traceCanvas.width, traceCanvas.height);
+    }
+
+    // Eventos de desenho
+    traceCanvas.addEventListener('mousedown', (e) => {
+      desenhando = true;
+      const rect = traceCanvas.getBoundingClientRect();
+      prevX = e.clientX - rect.left;
+      prevY = e.clientY - rect.top;
+    });
+
+    traceCanvas.addEventListener('mousemove', (e) => {
+      if (!desenhando) return;
+      const rect = traceCanvas.getBoundingClientRect();
+      const currX = e.clientX - rect.left;
+      const currY = e.clientY - rect.top;
+
+      traceCtx.lineWidth = 4;
+      traceCtx.lineCap = 'round';
+      traceCtx.strokeStyle = '#000';
+
+      traceCtx.beginPath();
+      traceCtx.moveTo(prevX, prevY);
+      traceCtx.lineTo(currX, currY);
+      traceCtx.stroke();
+
+      prevX = currX;
+      prevY = currY;
+    });
+
+    traceCanvas.addEventListener('mouseup', () => desenhando = false);
+    traceCanvas.addEventListener('mouseleave', () => desenhando = false);
+
+    // Começa com a primeira letra
+    desenharLetra();
+  </script>
+</body>
+</html>

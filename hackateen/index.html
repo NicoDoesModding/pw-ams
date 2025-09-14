@@ -17,6 +17,8 @@
   <div class="container">
     <div class="menu-box"><a href="start.html">Início</a></div>
     <div class="menu-box"><a href="index.html">Alfabeto</a></div>
+    <div class="menu-box"><a href="Fale.html">Soletrar</a></div>
+    <div class="menu-box"><a href="cursiva.html">Cursiva</a></div>
     <div class="menu-box"><a href="About.html">Sobre nós</a></div>
 
     <div class="menu-box" id="image"><img src="Logo.png" alt="Autismo" width="50px" height="50px"></div>
@@ -29,6 +31,7 @@
   <button onclick="falarPalavra()">Falar Palavra</button>
   <button onclick="limpar()">Limpar</button>
   <button onclick="removerLetra()">Voltar</button>
+  <a href="cursiva.html" id="bottom-button">Cursiva</a>
   <script>
     const letras = 'ABCÇDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
     const teclado = document.getElementById('keyboard');
@@ -67,8 +70,11 @@
 
     function falar(texto) {
       if ('speechSynthesis' in window) {
+        speechSynthesis.cancel(); // limpa fila
         const utter = new SpeechSynthesisUtterance(texto);
         utter.lang = 'pt-BR';
+        utter.volume = 1.0;
+        utter.rate = 1.5
         speechSynthesis.speak(utter);
       }
     }
