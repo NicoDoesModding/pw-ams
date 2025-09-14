@@ -51,7 +51,7 @@
 
     // Desenha a letra (maiúscula ou minúscula, dependendo do modo)
     async function desenharLetra() {
-      await document.fonts.ready; // espera a fonte carregar
+      await document.fonts.load('200px "Cedarville Cursive"'); // espera a fonte carregar
       letterCtx.clearRect(0, 0, letterCanvas.width, letterCanvas.height);
 
       const letra = modoMaiuscula 
