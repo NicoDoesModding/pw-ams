@@ -10,7 +10,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
   <link rel="icon" href="Logo.png" type="image/x-icon">
 </head>
-
+<style>
+@font-face {
+  font-family: 'Cursiva';
+  src: url('fonts/Cursiva.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}</style>
 <body>
     <div class="container">
     <div class="menu-box"><a href="home.html">Início</a></div>
@@ -34,7 +40,7 @@
   <button onclick="prevLetter()">← Letra anterior</button>
   <button onclick="nextLetter()">Próxima letra →</button>
   <button onclick="toggleCase()">Maiúscula/Minúscula</button>
-  <button onclick="clearCanvas()">Limpar</button>
+  <button onclick="limparTela()">Limpar</button>
 </div>
   <script>
     const traceCanvas = document.getElementById('traceCanvas');
@@ -59,7 +65,7 @@
         ? letras[indiceAtual].toUpperCase() 
         : letras[indiceAtual].toLowerCase();
 
-      letterCtx.font = '200px "Cedarville Cursive", cursive';
+      letterCtx.font = '200px "Cursiva", cursive';
       letterCtx.fillStyle = 'rgba(0,0,0,0.2)'; // cinza claro para facilitar o traçado
       letterCtx.textAlign = 'center';
       letterCtx.textBaseline = 'middle';
