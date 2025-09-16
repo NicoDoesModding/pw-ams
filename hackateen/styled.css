@@ -1,15 +1,15 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: linear-gradient(to bottom, #0b6cff, #c9dfff);
-  height: 100%;
+  height: 100vh;
   max-width: 100rem;
-  margin: 10 auto;
-  padding: 0px 10px; 
+  margin: 10px auto;
+  padding: 10px ; 
   background-repeat: no-repeat;
   background-attachment: fixed;
   text-align: center;
-  padding: 0px;
 }
+
 
 h1, p {
   color: #ffffff;
@@ -72,11 +72,12 @@ button:hover {
 }
 .container {
     width: 100%;
-    margin: auto;
     padding: 0px;
     display: flex;
     justify-content: flex-start;
-    border-radius: calc(20px + 8px)
+    border-radius: calc(20px + 8px);
+    align-items: center; 
+    gap: 20px;
 
 }
 .menu-box {
@@ -85,6 +86,9 @@ button:hover {
     box-sizing: border-box;
     display: block;
     border-radius: 20px;
+    padding-left: 0;
+    margin: 0;
+    gap: 20px; 
 }
 a{
   text-decoration: none;
@@ -98,7 +102,7 @@ a{
 }
 #image{
   margin-left: auto;
-  padding: 0%;
+  padding: 0;
   padding-top: 5px;
 }
 #letterContainer {
@@ -137,13 +141,13 @@ h2{
   flex-wrap: wrap;         /* caso a tela seja pequena, os botões vão quebrar linha */
 }
 .intro {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px 30px; /* 20px vertical, 30px horizontal */
-    max-width: 900px;
-    margin: 20px auto;
-    flex-wrap: wrap;
-    flex-direction: row; /* mantém imagem e texto lado a lado */
+  display: flex;
+  align-items: flex-start;
+  gap: 20px 30px; /* 20px vertical, 30px horizontal */
+  max-width: 900px;
+  margin: 20px auto;
+  flex-wrap: wrap;
+  flex-direction: row; /* mantém imagem e texto lado a lado */
 }
 .espaco {
   display: inline-block;
@@ -223,7 +227,7 @@ h2{
 .team-img {
   height: 250px;
   width: auto;
-  border-radius: 5px;   
+  border-radius: calc(5px + 10px + 5px + 15px);   
   padding-top: 10px;
 }
 
@@ -235,7 +239,7 @@ h2{
 }
 .all{
   border: solid black 5px;
-  border-radius: 15px;
+  border-radius: 30px;
   margin: auto;
   width: 600px;
   padding: auto;
