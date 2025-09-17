@@ -53,14 +53,14 @@
 
     // Desenha a letra (maiúscula ou minúscula, dependendo do modo)
     async function desenharLetra() {
-      await document.fonts.load('200px "Cursiva"'); // espera a fonte carregar
+      await document.fonts.load('250px "Arial"'); // espera a fonte carregar
       letterCtx.clearRect(0, 0, letterCanvas.width, letterCanvas.height);
 
       const letra = modoMaiuscula 
         ? letras[indiceAtual].toUpperCase() 
         : letras[indiceAtual].toLowerCase();
 
-      letterCtx.font = '200px "Cursiva", cursive';
+      letterCtx.font = '250px "Arial"';
       letterCtx.fillStyle = 'rgba(0,0,0,0.2)'; // cinza claro para facilitar o traçado
       letterCtx.textAlign = 'center';
       letterCtx.textBaseline = 'middle';

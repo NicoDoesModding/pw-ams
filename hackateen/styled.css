@@ -278,7 +278,12 @@ h2{
   cursor: pointer;
   z-index: 1000;
 }
-
+@font-face {
+    font-family: 'Cursiva';
+    src: url('fonts/Cursiva.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
 @media (max-width: 768px) {
   #letterContainer, #letterCanvas, #traceCanvas {
     width: 300px;
